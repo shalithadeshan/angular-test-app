@@ -4,9 +4,18 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+export function getBaseUrl(): string {
+  // return document.getElementsByTagName('base')[0].href + 'api/';
+  return 'https://jsonplaceholder.typicode.com/';
+}
+
+const providers = [
+  {provide: 'BASE_URL', useFactory: getBaseUrl, deps: []}
+];
+
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+platformBrowserDynamic(providers).bootstrapModule(AppModule)
   .catch(err => console.error(err));
