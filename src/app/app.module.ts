@@ -9,11 +9,12 @@ import { LoginFormComponent } from './+auth/components/login-form/login-form.com
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './private/home/home.component';
 import {HeaderComponent} from './shared/header/header.component';
-import { PostComponent } from './private/home/post/post.component';
-import { AlbumComponent } from './private/home/album/album.component';
+import { PostComponent, PostDialog } from './private/home/post/post.component';
+import { AlbumComponent, AlbumDialog } from './private/home/album/album.component';
 import { MyProfileComponent } from './private/home/my-profile/my-profile.component';
 import { CompletedComponent } from './private/home/my-profile/completed/completed.component';
 import { IncompletedComponent } from './private/home/my-profile/incompleted/incompleted.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import { IncompletedComponent } from './private/home/my-profile/incompleted/inco
     AlbumComponent,
     MyProfileComponent,
     CompletedComponent,
-    IncompletedComponent
+    IncompletedComponent,
+    PostDialog,
+    AlbumDialog
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { IncompletedComponent } from './private/home/my-profile/incompleted/inco
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    FormsModule,
 
   ],
   providers: [],

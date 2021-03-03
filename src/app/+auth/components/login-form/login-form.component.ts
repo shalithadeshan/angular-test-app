@@ -8,6 +8,7 @@ import {AuthService} from '../../services/auth.service';
 })
 export class LoginFormComponent implements OnInit {
   hide = true;
+  email: any;
 
   constructor(private authService: AuthService) {
   }
@@ -16,7 +17,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onLoginToApp(): void {
-    this.authService.getAllUsers().subscribe(res => {
+    this.authService.getAllUsers(this.email).subscribe(res => {
       console.log(res);
     });
   }

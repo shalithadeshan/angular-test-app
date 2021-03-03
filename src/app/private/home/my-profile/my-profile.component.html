@@ -9,21 +9,10 @@
         <div class="text-center mb-3">
           <p class="h3 text-danger font-weight-bold">To-Do List</p>
         </div>
-        <div class="row">
-          <div  class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
-            <button class="btn btn-primary" (click)="onPressComplete()">Completed </button>
-            <div class="mt-4" id="complete" *ngIf="display1">
-              <app-completed></app-completed>
-            </div>
-          </div>
-          <div  class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
-            <button class="btn btn-primary" (click)="onPressIncomplete()">Incompleted </button>
-            <div class="mt-4" id="incomplete" *ngIf="display2">
-              <app-incompleted></app-incompleted>
-            </div>
-          </div>
-
-        </div>
+        <mat-tab-group mat-align-tabs="center">
+          <mat-tab label="Completed"> <app-completed></app-completed> </mat-tab>
+          <mat-tab label="In completed"> <app-incompleted></app-incompleted> </mat-tab>
+        </mat-tab-group>
 
       </mat-card>
     </div>

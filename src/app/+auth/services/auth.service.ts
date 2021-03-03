@@ -11,8 +11,8 @@ export class AuthService {
               private http: HttpClient) {
   }
 
-  public getAllUsers(): Observable<any> {
-    return this.http.get(this.baseUrl + 'users');
+  public getAllUsers(email: any): Observable<any> {
+    return this.http.get(this.baseUrl + 'users/' + email);
   }
 
 }
