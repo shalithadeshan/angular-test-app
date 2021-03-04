@@ -9,14 +9,17 @@ import { LoginFormComponent } from './+auth/components/login-form/login-form.com
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './private/home/home.component';
 import {HeaderComponent} from './shared/header/header.component';
-import { PostComponent, PostDialog } from './private/home/post/post.component';
-import { AlbumComponent, AlbumDialog } from './private/home/album/album.component';
+import { PostComponent } from './private/home/post/post.component';
+import { AlbumComponent } from './private/home/album/album.component';
 import { MyProfileComponent } from './private/home/my-profile/my-profile.component';
 import { CompletedComponent } from './private/home/my-profile/to-do-list/completed/completed.component';
 import { IncompletedComponent } from './private/home/my-profile/to-do-list/incompleted/incompleted.component';
 import {FormsModule} from '@angular/forms';
 import { ToDoListComponent } from './private/home/my-profile/to-do-list/to-do-list.component';
 import { UserDataComponent } from './private/home/my-profile/user-data/user-data.component';
+import { PostDialogBoxComponent } from './private/home/post/post-dialog-box/post-dialog-box.component';
+import { AlbumDialogBoxComponent } from './private/home/album/album-dialog-box/album-dialog-box.component';
+import {AuthService} from './+auth/services/auth.service';
 
 
 
@@ -32,10 +35,10 @@ import { UserDataComponent } from './private/home/my-profile/user-data/user-data
     MyProfileComponent,
     CompletedComponent,
     IncompletedComponent,
-    PostDialog,
-    AlbumDialog,
     ToDoListComponent,
     UserDataComponent,
+    PostDialogBoxComponent,
+    AlbumDialogBoxComponent,
 
   ],
   imports: [
@@ -47,7 +50,7 @@ import { UserDataComponent } from './private/home/my-profile/user-data/user-data
     FormsModule,
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

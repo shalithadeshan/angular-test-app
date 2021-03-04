@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { AuthService } from '../../../+auth/services/auth.service';
 import { Posts } from '../../../classes/posts';
+import { PostDialogBoxComponent } from './post-dialog-box/post-dialog-box.component';
 
 @Component({
   selector: 'app-post',
@@ -15,7 +16,7 @@ export class PostComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   openDialog() {
-    this.dialog.open(PostDialog);
+    this.dialog.open(PostDialogBoxComponent);
   }
 
   // tslint:disable-next-line:typedef
@@ -30,11 +31,5 @@ export class PostComponent implements OnInit {
   }
 }
 
-@Component({
-  selector: 'app-post-dialog',
-  templateUrl: 'post-dialog.html',
-})
 
-// tslint:disable-next-line:component-class-suffix
-export class PostDialog {}
 

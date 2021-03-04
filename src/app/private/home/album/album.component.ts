@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {PostDialog} from '../post/post.component';
+import { AuthService } from '../../../+auth/services/auth.service';
+import { Albums } from '../../../classes/albums';
+import {AlbumDialogBoxComponent} from './album-dialog-box/album-dialog-box.component';
 
 @Component({
   selector: 'app-album',
@@ -9,23 +11,25 @@ import {PostDialog} from '../post/post.component';
 })
 export class AlbumComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private authService: AuthService) { }
+  album: Albums[];
 
   // tslint:disable-next-line:typedef
   openDialog() {
-    this.dialog.open(AlbumDialog);
+    this.dialog.open(AlbumDialogBoxComponent);
   }
 
   // tslint:disable-next-line:typedef
   ngOnInit() {
   }
 
+  onAlbumCard(): void {
+    this.authService.getAllAlbums().subscribe(rest =>{
+      this.album = rest;
+    });
+  }
 }
 
-@Component({
-  selector: 'app-album-dialog',
-  templateUrl: 'album-dialog.html',
-})
 
-// tslint:disable-next-line:component-class-suffix
-export class AlbumDialog {}
+
+
