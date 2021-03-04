@@ -2,7 +2,7 @@
 
     <mat-form-field appearance="fill">
         <mat-label>Enter your email</mat-label>
-        <input matInput type="email" [(ngModel)]="email">
+        <input matInput type="email" >
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -14,8 +14,20 @@
     </mat-form-field>
 
     <div class="text-center">
-        <button routerLink="/post" mat-raised-button (click)="onLoginToApp()" class="w-100" style="height: 50px ; border-radius: 5px" color="primary">
+        <button routerLink="" mat-raised-button (click)="onLoginToApp()" class="w-100" style="height: 50px ; border-radius: 5px" color="primary">
       SIGN IN
     </button>
     </div>
+</div>
+
+<div>
+  <ul *ngFor="let users of user">
+    <li>{{users.id}}</li>
+    <li>{{users.name}}</li>
+    <li>{{users.email}}</li>
+    <li>{{users.address}}</li>
+    <li>{{users.phone}}</li>
+    <li>{{users.site}}</li>
+    <li>{{users.company}}</li>
+  </ul>
 </div>

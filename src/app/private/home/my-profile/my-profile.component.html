@@ -2,18 +2,13 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-      <mat-card>Sample</mat-card>
+      <mat-card>
+        <app-user-data></app-user-data>
+      </mat-card>
     </div>
     <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
       <mat-card>
-        <div class="text-center mb-3">
-          <p class="h3 text-danger font-weight-bold">To-Do List</p>
-        </div>
-        <mat-tab-group mat-align-tabs="center">
-          <mat-tab label="Completed"> <app-completed></app-completed> </mat-tab>
-          <mat-tab label="In completed"> <app-incompleted></app-incompleted> </mat-tab>
-        </mat-tab-group>
-
+        <app-to-do-list></app-to-do-list>
       </mat-card>
     </div>
   </div>

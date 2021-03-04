@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import { AuthService } from '../../../+auth/services/auth.service';
+import { Posts } from '../../../classes/posts';
 
 @Component({
   selector: 'app-post',
@@ -8,7 +10,8 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class PostComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private authService: AuthService) { }
+  post: Posts[];
 
   // tslint:disable-next-line:typedef
   openDialog() {
@@ -19,6 +22,12 @@ export class PostComponent implements OnInit {
   ngOnInit() {
   }
 
+  // tslint:disable-next-line:typedef
+  onPostCard(): void {
+    this.authService.getAllPosts().subscribe(rest => {
+      this.post = rest;
+    });
+  }
 }
 
 @Component({

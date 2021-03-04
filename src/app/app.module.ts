@@ -12,9 +12,12 @@ import {HeaderComponent} from './shared/header/header.component';
 import { PostComponent, PostDialog } from './private/home/post/post.component';
 import { AlbumComponent, AlbumDialog } from './private/home/album/album.component';
 import { MyProfileComponent } from './private/home/my-profile/my-profile.component';
-import { CompletedComponent } from './private/home/my-profile/completed/completed.component';
-import { IncompletedComponent } from './private/home/my-profile/incompleted/incompleted.component';
+import { CompletedComponent } from './private/home/my-profile/to-do-list/completed/completed.component';
+import { IncompletedComponent } from './private/home/my-profile/to-do-list/incompleted/incompleted.component';
 import {FormsModule} from '@angular/forms';
+import { ToDoListComponent } from './private/home/my-profile/to-do-list/to-do-list.component';
+import { UserDataComponent } from './private/home/my-profile/user-data/user-data.component';
+
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import {FormsModule} from '@angular/forms';
     CompletedComponent,
     IncompletedComponent,
     PostDialog,
-    AlbumDialog
+    AlbumDialog,
+    ToDoListComponent,
+    UserDataComponent,
+
   ],
   imports: [
     BrowserModule,
