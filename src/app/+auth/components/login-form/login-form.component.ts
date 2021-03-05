@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
+import {UserProfileSubjectService} from '../../../shared/services/user-profile-subject.service';
 
 @Component({
   selector: 'app-login-form',
@@ -8,14 +10,42 @@ import {AuthService} from '../../services/auth.service';
 })
 export class LoginFormComponent implements OnInit {
   hide = true;
+  userId = '';
 
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private  userProfileSubjectService: UserProfileSubjectService,
+    private router: Router,
+    private authService: AuthService) {
   }
+
   ngOnInit(): void {
   }
 
   onLoginToApp(): void {
-    this.authService.sendClickEvent();
+    // 1. get user input to BL
+    // i. -> Form , -> two way binding ,-> ....
+    // -> two way binding - DONE.
+    // 2. pass that id to service method
+    // i. create service method
+    // ii .subscribe to that method
+
+    // 4. show that in the console
+    this.authService.getUserById(this.userId)
+      .subscribe(res => {
+        // Log In
+        if (res != null) {
+
+          // Show that in the profile
+          this.userProfileSubjectService
+            .sendUserProfileData(res);
+
+          this.router.navigate(['/post']);
+        }
+
+      });
+
+
+    // this.authService.sendClickEvent();
   }
 }

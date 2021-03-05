@@ -1,11 +1,20 @@
 
-
-<div *ngFor="let users of user">
-  <ul>
-    <li>{{users.id}}</li>
-    <li>{{users.name}}</li>
-    <li>{{users.email}}</li>
-    <li>{{users.phone}}</li>
-    <li>{{users.site}}</li>
+  <ul style="list-style: none">
+    <li>ID: {{user.id}}</li>
+    <li>Name: {{user.name}}</li>
+    <li>E-mail: {{user.email}}</li>
+    <li>Address: {{user.address?.street}},
+      {{user.address?.suite}},
+      {{user.address?.city}},
+      {{user.address?.zipcode}},
+      {{user.address?.geo.lat}},
+      {{user.address?.geo.lng}}
+    </li>
+    <li>Phone: {{user.phone}}</li>
+    <li>Website: {{user.website}}</li>
+    <li>Company: {{user.company?.name}},
+      {{user.company?.catchPhrase}},
+      {{user.company?.bs}}
+    </li>
   </ul>
-</div>
+
