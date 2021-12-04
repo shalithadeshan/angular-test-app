@@ -2,6 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
 import {Users} from '../../classes/users';
+import {map} from 'rxjs/operators';
 
 
 @Injectable({
@@ -35,6 +36,12 @@ export class AuthService {
 
   public getAllAlbums(): Observable<any> {
     return this.http.get(this.baseUrl + 'albums');
+  }
+  getComments<T>(path: string[], isLoaderOn = false): Observable<T> {
+    const apiPath = `${this.baseUrl}${path.join('/')}`;
+    console.log(apiPath);
+    return this.http.get<T>(apiPath).pipe(
+      map(data => data));
   }
 
 }

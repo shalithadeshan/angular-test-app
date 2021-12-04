@@ -12,22 +12,19 @@ import {AlbumDialogBoxComponent} from './album-dialog-box/album-dialog-box.compo
 export class AlbumComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private authService: AuthService) { }
-  album: Albums[];
+  albums: Albums[];
 
   // tslint:disable-next-line:typedef
   openDialog() {
     this.dialog.open(AlbumDialogBoxComponent);
   }
 
-  // tslint:disable-next-line:typedef
-  ngOnInit() {
-  }
-
-  onAlbumCard(): void {
-    this.authService.getAllAlbums().subscribe(rest =>{
-      this.album = rest;
+  ngOnInit(): void {
+    this.authService.getAllAlbums().subscribe(res =>{
+      this.albums = res;
     });
   }
+
 }
 
 

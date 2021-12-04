@@ -1,20 +1,15 @@
-<script src="post.component.ts"></script>
+<!--<script src="post.component.ts"></script>-->
 <app-header></app-header>
-<div class="container">
-  <button mat-raised-button (click)="onPostCard()">Click here to see all post</button>
-  <div class="row mt-5">
-    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3" *ngFor="let posts of post">
-      <mat-card (click)="openDialog()"  matRipple class="pointer" style="cursor: pointer">
-        <ul>
-          <li>{{posts.id}}</li>
-          <li>{{posts.title}}</li>
-          <li>{{posts.body}}</li>
-        </ul>
-      </mat-card>
+<div class="row mt-5">
+    <div class="col-12 col-md-4 mt-3" *ngFor="let post of posts">
+        <mat-card (click)="openDialog(post)" matRipple class="pointer" style="cursor: pointer; height: 100%;">
+            <div class="text-center">
+                <p class="fw-bold fs-5">{{ post.title }}</p>
+            </div>
+            <hr>
+            <div>
+                <p>{{ post.body }}</p>
+            </div>
+        </mat-card>
     </div>
-  </div>
 </div>
-
-
-
-

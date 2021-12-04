@@ -1,14 +1,12 @@
 <app-header></app-header>
 <div class="container">
-  <button mat-raised-button (click)="onAlbumCard()">Click here to see all albums</button>
-  <div class="row mt-5">
-    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3" *ngFor="let albums of album">
-      <mat-card (click)="openDialog()"  matRipple class="pointer" style="cursor: pointer">
-        <ul>
-          <li>{{albums.id}}</li>
-          <li>{{albums.title}}</li>
-        </ul>
-      </mat-card>
+    <div class="row mt-5">
+        <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 my-3" *ngFor="let album of albums">
+            <mat-card (click)="openDialog()" matRipple class="pointer" style="cursor: pointer; height: 100%;">
+                <div class="text-center">
+                    <p class="fw-bold fs-5">{{ album.title }}</p>
+                </div>
+            </mat-card>
+        </div>
     </div>
-  </div>
 </div>

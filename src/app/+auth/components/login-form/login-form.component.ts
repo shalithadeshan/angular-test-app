@@ -10,7 +10,7 @@ import {UserProfileSubjectService} from '../../../shared/services/user-profile-s
 })
 export class LoginFormComponent implements OnInit {
   hide = true;
-  userId = '';
+  email = '';
 
 
   constructor(
@@ -31,7 +31,7 @@ export class LoginFormComponent implements OnInit {
     // ii .subscribe to that method
 
     // 4. show that in the console
-    this.authService.getUserById(this.userId)
+    this.authService.getUserById(this.email)
       .subscribe(res => {
         // Log In
         if (res != null) {
