@@ -1,4 +1,5 @@
 export enum Paths {
   Posts = 'posts',
-  Comments = 'comments'
+  Comments = 'comments',
+  Todos = 'todos'
 }

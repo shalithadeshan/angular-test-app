@@ -12,17 +12,17 @@ export class UserDataComponent implements OnInit, OnDestroy {
   userProfileSubscription: Subscription;
   user = {} as Users;
 
-  constructor(private  userProfileSubjectService: UserProfileSubjectService) {
-    console.log('OK');
-    // console.log(this.userProfileSubjectService.userData);
-    // this.user = this.userProfileSubjectService.userData;
+  constructor(private userProfileSubjectService: UserProfileSubjectService) {
     this.userProfileSubscription = this.userProfileSubjectService.getUserProfileData()
       .subscribe(res => {
-        console.log(res);
-        this.user = res;
+        if (res != null) {
+          this.user = res;
+        }
+        const jsonData = localStorage.getItem('userData');
+        if (jsonData != null) {
+          this.user = JSON.parse(jsonData);
+        }
       });
-
-
   }
 
   ngOnInit(): void {

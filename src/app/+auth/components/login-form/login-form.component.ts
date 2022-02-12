@@ -35,7 +35,8 @@ export class LoginFormComponent implements OnInit {
       .subscribe(res => {
         // Log In
         if (res != null) {
-
+          const jsonData = JSON.stringify(res);
+          localStorage.setItem('userData', jsonData);
           // Show that in the profile
           this.userProfileSubjectService
             .sendUserProfileData(res);

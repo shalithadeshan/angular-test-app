@@ -12,14 +12,13 @@ import {HeaderComponent} from './shared/header/header.component';
 import { PostComponent } from './private/home/post/post.component';
 import { AlbumComponent } from './private/home/album/album.component';
 import { MyProfileComponent } from './private/home/my-profile/my-profile.component';
-import { CompletedComponent } from './private/home/my-profile/to-do-list/completed/completed.component';
-import { IncompletedComponent } from './private/home/my-profile/to-do-list/incompleted/incompleted.component';
 import {FormsModule} from '@angular/forms';
 import { ToDoListComponent } from './private/home/my-profile/to-do-list/to-do-list.component';
 import { UserDataComponent } from './private/home/my-profile/user-data/user-data.component';
 import { PostDialogBoxComponent } from './private/home/post/post-dialog-box/post-dialog-box.component';
 import { AlbumDialogBoxComponent } from './private/home/album/album-dialog-box/album-dialog-box.component';
 import {AuthService} from './+auth/services/auth.service';
+import { ToDosComponent } from './private/home/my-profile/to-do-list/to-dos/to-dos.component';
 
 
 
@@ -33,12 +32,11 @@ import {AuthService} from './+auth/services/auth.service';
     PostComponent,
     AlbumComponent,
     MyProfileComponent,
-    CompletedComponent,
-    IncompletedComponent,
     ToDoListComponent,
     UserDataComponent,
     PostDialogBoxComponent,
     AlbumDialogBoxComponent,
+    ToDosComponent,
 
   ],
   imports: [

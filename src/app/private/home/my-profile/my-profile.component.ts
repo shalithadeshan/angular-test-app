@@ -8,17 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class MyProfileComponent implements OnInit {
   display1 = false;
   display2 = false;
-  onPressComplete() {
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  onPressComplete(): void {
     this.display1 = !this.display1;
   }
 
-  onPressIncomplete(){
+  onPressIncomplete(): void{
     this.display2 = !this.display2;
   }
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 
 }

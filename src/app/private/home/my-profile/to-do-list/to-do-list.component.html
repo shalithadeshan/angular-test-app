@@ -1,7 +1,15 @@
   <div class="text-center mb-3">
     <p class="h3 text-danger font-weight-bold">To-Do List</p>
   </div>
-  <mat-tab-group mat-align-tabs="center">
-    <mat-tab label="Completed"> <app-completed></app-completed> </mat-tab>
-    <mat-tab label="In completed"> <app-incompleted></app-incompleted> </mat-tab>
+  <mat-tab-group mat-align-tabs="center" (selectedTabChange)="onToDo($event)">
+    <mat-tab label="Completed" aria-label="Completed">
+      <ul *ngFor="let todo of todoList$">
+      <app-to-dos [todo]="todo"></app-to-dos>
+      </ul>
+    </mat-tab>
+    <mat-tab label="In-completed" aria-label="In-completed">
+      <ul *ngFor="let todo of todoList$">
+        <app-to-dos [todo]="todo"></app-to-dos>
+      </ul>
+    </mat-tab>
   </mat-tab-group>

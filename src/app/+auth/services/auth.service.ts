@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
 import {Users} from '../../classes/users';
 import {map} from 'rxjs/operators';
+import {ToDo} from '../../classes/to-do';
 
 
 @Injectable({
@@ -21,10 +22,10 @@ export class AuthService {
     return this.http.get<Users>(this.baseUrl + `users/${userId}`);
   }
 
-  // tslint:disable-next-line:typedef
-  sendClickEvent() {
+  sendClickEvent(): void {
     this.subject.next();
   }
+
 
   public getAllUsers(): Observable<any> {
     return this.http.get(this.baseUrl + 'users');
@@ -42,6 +43,11 @@ export class AuthService {
     console.log(apiPath);
     return this.http.get<T>(apiPath).pipe(
       map(data => data));
+  }
+
+  public getTodosById(userId): Observable<ToDo[]> {
+    // 3. GET relevant data to user (get user profile data)
+    return this.http.get<ToDo[]>(this.baseUrl + `todos/?userId=${userId}`);
   }
 
 }

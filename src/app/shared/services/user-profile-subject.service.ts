@@ -15,10 +15,12 @@ export class UserProfileSubjectService {
 
   public sendUserProfileData(userProfile: Users): void {
     this.userData = userProfile;
-    return this.subject.next(userProfile);
+    if (this.userData != null) {
+    return this.subject.next(this.userData);
+    }
   }
 
   public getUserProfileData(): Observable<Users> {
-    return this.subject.asObservable();
+      return this.subject.asObservable();
   }
 }
